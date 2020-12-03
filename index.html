@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Fylo data storage component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      width: 100vw;
+      height: 100vh;
+      background-color: hsl(229, 57%, 11%);
+      background-image: url('./images/bg-desktop.png');
+      background-size: 100vw 50vh;
+      background-position: 0 50vh;
+      background-repeat: no-repeat;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 14px;
+    }
+
+    .container{
+      width: 70vw;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+
+    .app{
+      width: 100px;
+      height: 200px;
+      background-color: hsl(228, 56%, 26%);
+      border-radius: 1rem;
+      border-top-right-radius: 5rem;
+      margin-right: 3%;
+      padding: 2rem;
+      flex: 0 1 40%;
+    }
+
+    .buttons{
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .button{
+      padding: .7rem;
+      border-radius: .5rem;
+      background: hsl(229, 57%, 11%);
+      margin-right: 1rem;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .button:hover{
+      background: hsl(245, 22%, 23%);
+    }
+
+    .storage{
+      position: relative;
+      width: 200px;
+      height: 150px;
+      background-color: hsl(228, 56%, 26%);
+      border-radius: 1rem;
+      padding: 2rem;
+      display: grid;
+      place-items: center;
+      flex: 0 1 57%;
+    }
+
+    .storage span{
+      font-weight: 800;
+    }
+
+    .contain{
+      width: 100%;
+      height: 100%;
+    }
+
+    .storage p{
+      margin-bottom: 20px;
+    }
+
+    #progress{
+      width: 100%;
+      height: 18px;
+      -webkit-appearance: none;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    #progress::-webkit-progress-bar{
+      background: hsl(229, 57%, 11%);
+      border-radius: 1rem;
+    }
+
+    #progress::-webkit-progress-value{
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      height: 10px;
+      background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+      border-radius: 1rem;
+    }
+
+    #progress::-webkit-progress-value:before{
+      content: '';
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      background: white;
+      z-index: 10;
+    }
+
+    .remaining{
+      position: absolute;
+      top: -25%;
+      right: 2rem;
+      width: 30%;
+      height: 50%;
+      background: #fff;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 100% 100%, 85% 75%, 0% 75%);
+      color: #000;
+      font-size: 3rem;
+      font-weight: 800;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 25px;
+    }
+
+    .remaining span{
+      font-size: 14px;
+      font-weight: 900;
+      color: hsl(229, 7%, 55%);
+      text-transform: uppercase;
+    }
+
+    .value{
+      position: relative;
+      width: 100%;
+    }
+
+    .value h4:nth-child(2){
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    
+    .attribution{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 11px;
+      text-align: center;
+    }
+    .attribution a { font-weight: 800; color: hsl(199°, 56%, 44%) }
+  </style>
+</head>
+<body>
+
+<div class='container'>
+  <div class="app">
+    <img src="./images/logo.svg" />
+    <div class="buttons">
+      <div class="button"><img src="./images/icon-document.svg" /></div>
+      <div class="button"><img src="./images/icon-folder.svg" /></div>
+      <div class="button"><img src="./images/icon-upload.svg" /></div>
+    </div>
+  </div>
+
+  <div class="storage">
+    <div class="contain">
+      <p>You’ve used <span>815 GB</span> of your storage</p>
+      <div class="remaining">185 <span>GB Left</span></div>
+      <progress id="progress" value="81.5" max="100"></progress>
+      <div class="value">
+        <h4>0 GB</h4>
+        <h4>1000 GB</h4>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="#">Yeshaya</a>.
+</div>
+
+</body>
+</html>
